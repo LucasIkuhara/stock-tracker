@@ -1,0 +1,9 @@
+version: '3'
+services:
+  frontend:
+    image: frontend
+    build: ./frontend
+
+  backend:
+    image: backend
+    build: ./backend
