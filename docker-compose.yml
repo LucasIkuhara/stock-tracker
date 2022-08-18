@@ -8,6 +8,10 @@ services:
     image: backend
     build: ./backend
 
+  extractor:
+    image: extractor
+    build: ./extractor
+
   db:
     image: database
     build: ./mongo
