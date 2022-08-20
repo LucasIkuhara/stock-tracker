@@ -1,2 +1,2 @@
 # min   hour    day     month   weekday command
-*/1     *       *       *       *       echo "hi"
+*/15     *       *       *       *       python /app/src/extract.py every15m
