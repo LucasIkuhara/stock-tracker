@@ -4,9 +4,14 @@ services:
   #   image: frontend
   #   build: ./frontend
 
-  # backend:
-  #   image: backend
-  #   build: ./backend
+  backend:
+    image: backend
+    build: ./backend
+    env_file:
+      - .env
+    networks:
+      - private
+
 
   extractor:
     image: extractor

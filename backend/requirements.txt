@@ -1,0 +1,4 @@
+django
+dependency-injector
+pytest
+pymongo
