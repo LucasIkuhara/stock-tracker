@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict
 
 
 class StockParser:
@@ -22,3 +22,21 @@ class StockParser:
         result = list(result)
 
         return result 
+
+    @staticmethod
+    def stock_from_yfin(obj: Dict) -> Dict:
+        '''
+        Takes in a dict structured as an yfinance tick info object and formats it as
+        a stock document, ready to be stored.
+
+        Arguments:
+            obj: The input dict.
+
+        Returns:
+            A dict representing a stock ready to be stored.
+
+        Raises:
+            KeyError: in case the entry is missing a required attribute.
+        '''
+
+        pass
