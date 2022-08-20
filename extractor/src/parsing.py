@@ -39,4 +39,4 @@ class StockParser:
             KeyError: in case the entry is missing a required attribute.
         '''
 
-        pass
+        return {'_id': obj['symbol'], 'price': obj['currentPrice'], "name": obj["longName"]}
