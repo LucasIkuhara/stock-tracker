@@ -1,30 +1,39 @@
 version: '3'
 services:
-  frontend:
-    image: frontend
-    build: ./frontend
+  # frontend:
+  #   image: frontend
+  #   build: ./frontend
 
-  backend:
-    image: backend
-    build: ./backend
+  # backend:
+  #   image: backend
+  #   build: ./backend
 
   extractor:
     image: extractor
     build: ./extractor
+    env_file:
+      - .env
+    networks:
+      - private
 
-  db:
-    image: database
-    build: ./mongo
+  database:
+    image: mongo
     restart: always
     volumes:
       - db-data:/data/db
+    command: mongod --bind_ip_all
     ports:
-      - 27017
+      - 27017:27017
     expose:
       - 27017
+    networks:
+      - private
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
 volumes:
   db-data:
+
+networks:
+  private:
