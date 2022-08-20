@@ -17,4 +17,8 @@ class StockParser:
             A list of stock ticks as str. 
         '''
 
-        return []
+        result = filter(lambda obj: len(obj["interested"]) > 0, stocks_array)
+        result = map(lambda obj: obj["_id"], result)
+        result = list(result)
+
+        return result 
