@@ -1,23 +1,22 @@
 version: '3'
 services:
-  # frontend:
-  #   image: frontend
-  #   build: ./frontend
+  frontend:
+    image: frontend
+    build: ./frontend
 
   backend:
     image: backend
     build: ./backend
     env_file:
-      - ./env_template/env-extractor
+      - ./env_templates/env_backend
     networks:
       - private
-
 
   extractor:
     image: extractor
     build: ./extractor
     env_file:
-      - .env
+      - ./env_templates/env_extractor
     networks:
       - private
 
@@ -33,9 +32,8 @@ services:
       - 27017
     networks:
       - private
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+    env_file:
+      - ./env_templates/env_mongo
 
 volumes:
   db-data:
