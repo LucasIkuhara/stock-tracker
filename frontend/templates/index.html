@@ -12,10 +12,12 @@
         <div id="app">
             
             <div class="header">
-                <label for="email" class="text-font">email: </label>
-                <input type="text" name="email" v-model="userEmail">
+                <div>
+                    <label for="email" class="text-font header-label">email: </label>
+                    <input type="text" name="email" v-model="userEmail">
+                </div>
 
-                <button :disabled="!userEmail.length > 0">Submit</button>
+                <button class="header-submit" :disabled="!userEmail.length > 0">Submit</button>
             </div>
 
             <div class="background">
