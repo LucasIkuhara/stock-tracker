@@ -8,11 +8,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body class="scaffold">
+    <body>
         <div id="app">
-            <div class="scaffold" id="main" >
-                
-               
+            <div class="background">
+                <div id="main" v-for="card in trackedStocks">
+                    <div class="box glass">
+                        <input type="text" class="textbox" :placeholder="card.symbol">
+                        <p class="text-name">{{card.name}}</p>
+                    </div>
+                   
+                </div>
+
             </div>
 
         </div>
@@ -26,7 +32,8 @@
                 return {
                     userEmail: null,
                     backendUri: "",
-                    trackedStocks: [{symbol: 'TST1', min: 0, max: 100, rate: '15m'}]
+                    trackedStocks: [{symbol: 'TST1', name: "Test Stock 1",min: 0, max: 100, rate: '15m'},
+                    {symbol: 'TST2', name: "Test Stock 2",min: 0, max: 100, rate: '15m'}]
                 }
             },
 

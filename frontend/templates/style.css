@@ -1,38 +1,65 @@
-:root {
---plotly_dark_bg: #111111;
---page_bg: #1d2125;
-}
-
 #main {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
-    background-color: var(--page_bg);
+    flex-direction: row;
+    margin: 0px;
+    padding: 0px;
 }
 
-.box {
-    background-color: var(--plotly_dark_bg);
-    box-shadow: rgba(0, 0, 0, 0.171) 3px 3px;
-    border-radius: 3px;
-    margin: 10px;
-    padding: 12px;
-    height: 400px;
-    width: 400px;
-    overflow: hidden;
-}   
-
-.scaffold {
-    display: flex;
+.background {
+    background-image: url("./backgrond.png"); 
+    background-color: #cccccc;
+    background-repeat: round;
+    background-size: cover;
     margin: 0px;
     padding: 0px;
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--page_bg);
 }
 
-.body {
+.glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+
+}
+
+.box {
+    margin: 10px;
+    padding: 12px;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}   
+
+body {
     margin: 0px;
-    background: grey;
+    margin: 0px;
+    padding: 0px;
+}
+
+.textbox {
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    size: 50px;
+    padding: 30px 0px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.text-name {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
