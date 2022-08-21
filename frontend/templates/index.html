@@ -13,11 +13,28 @@
             <div class="background">
                 <div id="main" v-for="card in trackedStocks">
                     <div class="box glass">
-                        <input type="text" class="textbox" :placeholder="card.symbol">
-                        <p class="text-name">{{card.name}}</p>
+                        <input type="text" class="textbox text-font" :placeholder="card.symbol" v-model="card.symbol">
+                        <p class="text-name text-font">{{card.name}}</p>
+                        <div class="stock-controls">
+                            <label for="max" class="text-font">Max: </label>
+                            <input type="number" name="max" v-model="card.max">
+
+                            <label for="min" class="text-font">Min: </label>
+                            <input type="number" name="min" v-model="card.min">
+
+                            <label for="rate" class="text-font">Frequency: </label>
+                            <select v-model="card.rate" name="rate">
+                                <option disabled value="">Please select one</option>
+                                <option value="every15m">Every 15 minutes</option>
+                              </select>
+                        </div>
                     </div>
-                   
                 </div>
+
+                <div class="box glass">
+                    <p class="plus" v-on:click="addCard()">+</p>
+                </div>
+                
 
             </div>
 
@@ -32,20 +49,25 @@
                 return {
                     userEmail: null,
                     backendUri: "",
-                    trackedStocks: [{symbol: 'TST1', name: "Test Stock 1",min: 0, max: 100, rate: '15m'},
-                    {symbol: 'TST2', name: "Test Stock 2",min: 0, max: 100, rate: '15m'}]
+                    trackedStocks: 
+                    [{symbol: 'TST1', name: "Test Stock 1", min: 0, max: 100, rate: 'every15m'}]
                 }
             },
 
-            async mounted() {
+            mounted() {
 
                 console.log('Starting Dashboard')
-                
-
+                setInterval(() => {console.log(this.trackedStocks)}, 2000)
             },
 
             methods: {
-
+                /**
+                 * Creates a new card.
+                */
+                addCard() {
+                    console.log(1);
+                    this.trackedStocks.push({symbol: 'ADD', name: "Newly added stock", min: 0, max: 100, rate: 'every15m'})
+                }
             }
 
         }).mount('#app')
