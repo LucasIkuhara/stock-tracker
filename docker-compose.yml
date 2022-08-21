@@ -3,6 +3,10 @@ services:
   frontend:
     image: frontend
     build: ./frontend
+    ports:
+      - 80:80
+    networks:
+      - private
 
   backend:
     image: backend
