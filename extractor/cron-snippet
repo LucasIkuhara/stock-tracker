@@ -1,2 +1,5 @@
 # min   hour    day     month   weekday command
 */15     *       *       *       *       python /app/src/extract.py every15m
+*      */1       *       *       *       python /app/src/extract.py every1h
+*        *       */1     *       *       python /app/src/extract.py every1d
+*        *       */7     *       *       python /app/src/extract.py every7d
