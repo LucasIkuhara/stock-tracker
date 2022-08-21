@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Stock Tracker</title>
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="https://unpkg.com/vue-router@4"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="scaffold">
+        <div id="app">
+            <div class="scaffold" id="main" >
+                
+               
+            </div>
+
+        </div>
+            
+    </body>
+
+    <!-- Vue App -->
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    userEmail: null,
+                    backendUri: "",
+                    trackedStocks: [{symbol: 'TST1', min: 0, max: 100, rate: '15m'}]
+                }
+            },
+
+            async mounted() {
+
+                console.log('Starting Dashboard')
+                
+
+            },
+
+            methods: {
+
+            }
+
+        }).mount('#app')
+
+    </script>
+
+</html>
