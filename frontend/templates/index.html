@@ -10,8 +10,17 @@
 
     <body>
         <div id="app">
+            
+            <div class="header">
+                <label for="email" class="text-font">email: </label>
+                <input type="text" name="email" v-model="userEmail">
+
+                <button :disabled="!userEmail.length > 0">Submit</button>
+            </div>
+
             <div class="background">
                 <div id="main" v-for="card in trackedStocks">
+
                     <div class="box glass">
                         <input type="text" class="textbox text-font" :placeholder="card.symbol" v-model="card.symbol">
                         <p class="text-name text-font">{{card.name}}</p>
@@ -26,9 +35,13 @@
                             <select v-model="card.rate" name="rate">
                                 <option disabled value="">Please select one</option>
                                 <option value="every15m">Every 15 minutes</option>
+                                <option value="every1h">Every hour</option>
+                                <option value="every1d">Every day</option>
+                                <option value="every7d">Every week</option>
                               </select>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="box plus-box glass">
@@ -47,7 +60,7 @@
         Vue.createApp({
             data() {
                 return {
-                    userEmail: null,
+                    userEmail: '',
                     backendUri: "",
                     trackedStocks: 
                     [{symbol: 'TST1', name: "Test Stock 1", min: 0, max: 100, rate: 'every15m'}]
